@@ -25,8 +25,7 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="27"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="NextButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Wqt-fQ-pcu"/>
-                                    <action selector="nextButtonDidTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="XTQ-R1-Lvt"/>
+                                    <action selector="startButtonDidTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="9ck-R0-lTu"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="VFz-PH-igQ">
@@ -70,12 +69,13 @@
                     <connections>
                         <outlet property="TrafficLightGreenView" destination="teb-nv-GSf" id="Y7m-mB-B2d"/>
                         <outlet property="TrafficLightYellowView" destination="seq-Pq-Fd4" id="aDw-S3-tu2"/>
+                        <outlet property="startButton" destination="g6y-9w-MA8" id="TJp-Fu-O0m"/>
                         <outlet property="trafficLightRedView" destination="MxN-qd-6jA" id="xOC-Jp-OMq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="130.53435114503816" y="-27.464788732394368"/>
+            <point key="canvasLocation" x="-448" y="137"/>
         </scene>
     </scenes>
     <resources>
