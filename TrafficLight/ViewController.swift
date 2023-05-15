@@ -20,9 +20,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        trafficLightRedView.layer.cornerRadius = trafficLightRedView.bounds.height / 2
-        trafficLightYellowView.layer.cornerRadius = trafficLightYellowView.bounds.height / 2
-        trafficLightGreenView.layer.cornerRadius = trafficLightGreenView.bounds.height / 2
+        trafficLightRedView.layer.cornerRadius = trafficLightRedView.frame.height / 2
+        trafficLightYellowView.layer.cornerRadius = trafficLightYellowView.frame.height / 2
+        trafficLightGreenView.layer.cornerRadius = trafficLightGreenView.frame.height / 2
+        
+        startButton.configuration = setupButton(with: "START")
     }
     
     @IBAction func startButtonDidTapped() {
@@ -34,9 +36,9 @@ class ViewController: UIViewController {
         switch currentLight {
         case 1:
             trafficLightRedView.alpha = 1.0
-            startButton.setTitle("NEXT", for: .normal)
             trafficLightYellowView.alpha = 0.3
             trafficLightGreenView.alpha = 0.3
+            startButton.configuration = setupButton(with: "NEXT")
         case 2:
             trafficLightYellowView.alpha = 1.0
             trafficLightRedView.alpha = 0.3
@@ -49,4 +51,13 @@ class ViewController: UIViewController {
             break
         }
     }
+}
+
+private func setupButton(with title: String) -> UIButton.Configuration {
+    var buttonConfiguration = UIButton.Configuration.filled()
+    buttonConfiguration.title = title
+    buttonConfiguration.buttonSize = .large
+    buttonConfiguration.cornerStyle = .large
+    buttonConfiguration.attributedTitle?.font = UIFont.systemFont(ofSize: 25)
+    return buttonConfiguration
 }
