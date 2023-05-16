@@ -14,20 +14,23 @@ class ViewController: UIViewController {
     @IBOutlet var trafficLightGreenView: UIView!
     @IBOutlet var startButton: UIButton!
     
-    var currentLight = 0
+    private var currentLight = 0
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        startButton.configuration = setupButton(with: "START")
         
         trafficLightRedView.layer.cornerRadius = trafficLightRedView.frame.height / 2
         trafficLightYellowView.layer.cornerRadius = trafficLightYellowView.frame.height / 2
         trafficLightGreenView.layer.cornerRadius = trafficLightGreenView.frame.height / 2
-        
-        startButton.configuration = setupButton(with: "START")
     }
     
+   
+    
     @IBAction func startButtonDidTapped() {
+            startButton.configuration = setupButton(with: "NEXT")
+        
         currentLight += 1
         if currentLight > 3 {
             currentLight = 1
@@ -38,7 +41,7 @@ class ViewController: UIViewController {
             trafficLightRedView.alpha = 1.0
             trafficLightYellowView.alpha = 0.3
             trafficLightGreenView.alpha = 0.3
-            startButton.configuration = setupButton(with: "NEXT")
+            
         case 2:
             trafficLightYellowView.alpha = 1.0
             trafficLightRedView.alpha = 0.3
@@ -51,13 +54,15 @@ class ViewController: UIViewController {
             break
         }
     }
+    
+    private func setupButton(with title: String) -> UIButton.Configuration {
+        var buttonConfiguration = UIButton.Configuration.filled()
+        buttonConfiguration.title = title
+        buttonConfiguration.buttonSize = .large
+        buttonConfiguration.cornerStyle = .large
+        buttonConfiguration.attributedTitle?.font = UIFont.systemFont(ofSize: 25)
+        return buttonConfiguration
+    }
 }
 
-private func setupButton(with title: String) -> UIButton.Configuration {
-    var buttonConfiguration = UIButton.Configuration.filled()
-    buttonConfiguration.title = title
-    buttonConfiguration.buttonSize = .large
-    buttonConfiguration.cornerStyle = .large
-    buttonConfiguration.attributedTitle?.font = UIFont.systemFont(ofSize: 25)
-    return buttonConfiguration
-}
+
