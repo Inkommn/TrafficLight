@@ -26,6 +26,12 @@ class ViewController: UIViewController {
         trafficLightGreenView.layer.cornerRadius = trafficLightGreenView.frame.height / 2
     }
     
+    override func viewWillLayoutSubviews() {
+        trafficLightRedView.layer.cornerRadius = trafficLightRedView.frame.height / 2
+        trafficLightYellowView.layer.cornerRadius = trafficLightYellowView.frame.height / 2
+        trafficLightGreenView.layer.cornerRadius = trafficLightGreenView.frame.height / 2
+    }
+    
    
     
     @IBAction func startButtonDidTapped() {
